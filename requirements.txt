@@ -1,0 +1,7 @@
+discord.py
+aiohttp
+isodate
+python-dotenv
+PyNaCl
+cachetools
+gtts
