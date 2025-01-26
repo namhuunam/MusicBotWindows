@@ -81,8 +81,8 @@ Dự án này bao gồm hai bot Discord với các chức năng mạnh mẽ:
 5. Tương tự tạo tiếp một Bot nữa như các bước trên rồi nhập vào `DISCORD_TOKEN_2` trong file `.env` để làm bot chuyển text sang giọng đọc
 6. Thêm 2 Bot vừa tạo vào Server Discord của bạn bằng cách:
    - bấm vào `OAuth2` ở cột bên trái sau đó `OAuth2 URL Generator` đánh dấu vào `Bot`
-   - `Bot Permissions` đánh dấu tích vào `Administrator`
-   - Sau đó phần `Generated URL` ở cuối trang sẽ có đường link bạn `copy` và dán vào tab trình duyệt rồi add bot vào server discord của mình (lưu ý là bot phải có quyền `Administrator`)
+   - `Bot Permissions` đánh dấu tích vào `Send Messages`, `Connect`, `Speak`, `Manage Messages`.
+   - Sau đó phần `Generated URL` ở cuối trang sẽ có đường link bạn `copy` và dán vào tab trình duyệt rồi add bot vào server discord của mình.
 ## **Hướng dẫn cài đặt trên Windows**
 ### **1. Cài đặt Python 3.10 trở lên**
 Tải và cài đặt [Python](https://www.python.org/downloads/).
