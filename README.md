@@ -60,7 +60,6 @@ Dự án này bao gồm hai bot Discord với các chức năng mạnh mẽ:
 3. API Key sẽ được tạo. Sao chép và lưu lại API Key này.
 ### **1. Yêu cầu hệ thống**
 - Python 3.10 trở lên.
-- `ffmpeg` .
 
 ### **5. Hạn chế quyền API Key (khuyến nghị)**
 1. Nhấn vào API Key vừa tạo.
@@ -80,27 +79,21 @@ Dự án này bao gồm hai bot Discord với các chức năng mạnh mẽ:
 3. Nhập tên bot mà bạn muốn (sau đó tải ảnh avt tùy theo ý muốn của bạn)
 4. Bấm vào biểu tượng Bot ở cột bên phải sau đó bấm nút `Reset Token` rồi Copy token và nhập vào file .env
 5. Tương tự tạo tiếp một Bot nữa như các bước trên rồi nhập vào `DISCORD_TOKEN_2` trong file `.env` để làm bot chuyển text sang giọng đọc
-## **Hướng dẫn cài đặt trên Linux (Ubuntu)**
-### **1. Cập nhật hệ thống**
-```bash
-sudo apt update && sudo apt upgrade -y
-```
-### **2. Cài đặt Python 3.10 trở lên và các công cụ cần thiết**
-```bash
-sudo apt install python3 python3-pip python3-venv ffmpeg git -y
-```
-### **3. Clone dự án**
-```bash
-git clone https://github.com/namhuunam/MusicBot.git
-cd MusicBot
-```
-### **4. Tạo môi trường ảo và cài đặt thư viện**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-### **5. Cấu hình file `.env`**
+6. Thêm 2 Bot vừa tạo vào Server Discord của bạn bằng cách:
+   - bấm vào `OAuth2` ở cột bên trái sau đó `OAuth2 URL Generator` đánh dấu vào `Bot`
+   - `Bot Permissions` đánh dấu tích vào `Administrator`
+   - Sau đó phần `Generated URL` ở cuối trang sẽ có đường link bạn `copy` và dán vào tab trình duyệt rồi add bot vào server discord của mình (lưu ý là bot phải có quyền `Administrator`)
+## **Hướng dẫn cài đặt trên Windows**
+### **1. Cài đặt Python 3.10 trở lên**
+Tải và cài đặt [Python](https://www.python.org/downloads/).
+
+### **2. Tải file MusicBot dành cho windows**
+Tải và giải nén [MusicBotWindows](https://github.com/namhuunam/MusicBotWindows/releases/tag/MusicBotWindows).
+
+### **3. Chạy file install.bat để cài đặt các thư viện cần thiết**
+Sau khi giải nén `file MusicBotWindows.zip` thì chạy file `install.bat`
+
+### **4. Cấu hình file `.env`**
 1. Sửa file `.env` trong thư mục dự án:
 2. Thêm nội dung:
    ```env
@@ -108,53 +101,20 @@ pip install -r requirements.txt
    DISCORD_TOKEN_2=<Token Discord của bot giọng nói>
    YOUTUBE_API_KEY=<API Key của YouTube>
    ```
-3. Lưu file và thoát (`Ctrl+O`, `Enter`, `Ctrl+X`).
-### **6. Sửa proxy trong file `bot.py` dùng proxy v4 hay v6 đều được, khuyên dùng v6 cho rẻ đâu đó khoảng tầm 4000vnđ/tháng :D**
+3. Lưu file và thoát .
+### **5. Sửa proxy trong file `bot.py` dùng proxy v4 hay v6 đều được, khuyên dùng v6 cho rẻ đâu đó khoảng tầm 4000vnđ/tháng :D**
 1. Tìm từ khóa `proxy` trong file `bot.py` nằm ở dòng `468`, `565`, `608`, `635` .
 2. Thay thế thành proxy của bạn theo dạng `http://user:pass@ip:port` ví dụ `http://user123:pass123@192.168.1.1:8080` .
+
 **Vì sao phải sử dụng proxy ? Vì một số vps bị youtube block ip lên phải sử dụng proxy để lấy url âm thanh của youtube**
+
 **Còn nếu ip vps của bạn không bị block thì bạn có thể xóa bỏ proxy đi cũng được**
+
 **Lưu ý là phải thay proxy không là bot sẽ không phát nhạc được**
-### **6. Chạy bot thủ công, chỉ cần chạy một file bot.py**
-- Chạy bot nhạc:
-  ```bash
-  python3 bot.py
-  ```
+
+### **6. Chạy bot**
+Chạy file `run.bat` để bắt đầu chạy bot
   
-### **7. Thiết lập tự động chạy bằng `systemd`**
-1. Tạo file dịch vụ:
-2. Tạo môi trường ảo và cài đặt thư viện:
-   ```bash
-   sudo nano /etc/systemd/system/discord-bot.service
-   ```
-2. Thêm nội dung:
-   ```ini
-   [Unit]
-   Description=Discord Bot
-   After=network.target
-   [Service]
-   Type=simple
-   User=<username>  # Thay <username> bằng tên người dùng của bạn ví dụ: root
-   WorkingDirectory=/path/to/your/project  # Thay bằng đường dẫn đến thư mục chứa bot.py ví dụ: /root/bot
-   ExecStart=/path/to/your/project/venv/bin/python3 bot.py #ví dụ: /root/bot/venv/bin/python3 bot.py
-   Restart=always
-   RestartSec=3
-   Environment="PYTHONUNBUFFERED=1"
-   [Install]
-   WantedBy=multi-user.target
-   ```
-
-3. Lưu file và tải lại cấu hình:
-   ```bash
-   sudo systemctl daemon-reload
-   sudo systemctl enable discord-bot.service
-   sudo systemctl start discord-bot.service
-   ```
-
-4. Kiểm tra trạng thái:
-   ```bash
-   sudo systemctl status discord-bot.service
-   ```
 
 ---
 
@@ -176,24 +136,13 @@ pip install -r requirements.txt
 ---
 
 ## 🛠️ **Khắc phục sự cố**
-- **Kiểm tra log dịch vụ**:
-  ```bash
-  journalctl -u discord-bot.service -f
-  ```
-- **Lỗi thiếu thư viện**:
-  ```bash
-  pip install -r requirements.txt
-  ```
-- **Kiểm tra `ffmpeg`**:
-  ```bash
-  ffmpeg -version
-  ```
 1. **Bot không kết nối được với kênh thoại**:
    - Kiểm tra quyền **Kết nối** và **Phát giọng nói**.
    - Đảm bảo token Discord trong `.env` là chính xác.
 2. **Bot không phát nhạc**:
-   - Đảm bảo `ffmpeg` đã được cài đặt và thêm vào `PATH`.
+   - Đảm bảo `ffmpeg` đã được tải và thêm vào `ffmpeg`.
    - Kiểm tra kết nối mạng và API key YouTube.
+   - Kiểm tra đã thêm proxy đúng chưa
 3. **Bot không phản hồi lệnh**:
    - Kiểm tra bot có đang chạy không.
    - Đảm bảo sử dụng đúng tiền tố lệnh (`!` cho nhạc, `?` cho giọng nói).
