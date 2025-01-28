@@ -88,7 +88,7 @@ Dự án này bao gồm hai bot Discord với các chức năng mạnh mẽ:
 Tải và cài đặt [Python](https://www.python.org/downloads/).
 
 ### **2. Tải file MusicBot dành cho windows**
-Tải và giải nén [MusicBotWindows](https://github.com/namhuunam/MusicBotWindows/releases/tag/MusicBotWindows).
+Tải và giải nén [MusicBotWindows](https://github.com/namhuunam/MusicBotWindows/releases/download/MusicBotWindowsNews/MusicBotWindows.zip).
 
 ### **3. Chạy file install.bat để cài đặt các thư viện cần thiết**
 Sau khi giải nén `file MusicBotWindows.zip` thì chạy file `install.bat`
@@ -102,9 +102,8 @@ Sau khi giải nén `file MusicBotWindows.zip` thì chạy file `install.bat`
    YOUTUBE_API_KEY=<API Key của YouTube>
    ```
 3. Lưu file và thoát .
-### **5. Sửa proxy trong file `bot.py` dùng proxy v4 hay v6 đều được, khuyên dùng v6 cho rẻ đâu đó khoảng tầm 4000vnđ/tháng :D**
-1. Tìm từ khóa `proxy` trong file `bot.py` nằm ở dòng `468`, `565`, `608`, `635` .
-2. Thay thế thành proxy của bạn theo dạng `http://user:pass@ip:port` ví dụ `http://user123:pass123@192.168.1.1:8080` .
+### **5. Sửa proxy trong file `proxy.txt` dùng proxy v4 hay v6 đều được, khuyên dùng v6 cho rẻ đâu đó khoảng tầm 4000vnđ/tháng :D**
+- Thay thế thành proxy của bạn theo dạng `http://user:pass@ip:port` ví dụ `http://user123:pass123@192.168.1.1:8080` .
 
 **Vì sao phải sử dụng proxy ? Vì một số vps bị youtube block ip lên phải sử dụng proxy để lấy url âm thanh của youtube**
 
